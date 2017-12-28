@@ -11,6 +11,9 @@
             (normal-top-level-add-subdirs-to-load-path))))))
 (add-to-load-path "elisp" "conf" "public_repos")
 
+;; conf以下の設定ファイルを読み込んでいく
 (require 'init-loader)
 (init-loader-load "~/.emacs.d/conf")
+
+
 

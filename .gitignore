@@ -1,2 +1,5 @@
-auto_save_list/
+.emacs.d/auto-save-list/
+.emacs.d/backups/
+.emacs.d/elpa/archives
+.emacs.d/recentf
 

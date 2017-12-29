@@ -8,12 +8,24 @@
 ;; 入力されるキーシーケンスを置き換える
 ;; ?\C-?はDELのキーシケンス
 ;(keyboard-translate ?\C-h ?\C-?)
-(global-set-key "\C-h" 'delete-backward-char)
-
+(global-set-key (kbd "C-h") 'delete-backward-char)
 ;;; P79-81 お勧めのキー操作
-;; 先ほどとは異なりglobal-set-keyを利用
+;; 先ほどとは異なりglobal-set-keyを利用(
 (global-set-key (kbd "C-m") 'newline-and-indent)
 ;; 折り返しトグルコマンド
 (define-key global-map (kbd "C-c l") 'toggle-truncate-lines)
 ;; "C-t" でウィンドウを切り替える。初期値はtranspose-chars
 (define-key global-map (kbd "C-t") 'other-window)
+
+
+;; =========================================================
+;; key bind
+;; =========================================================
+(define-key global-map (kbd "C-]") 'anything)
+(define-key global-map (kbd "C-M-z") 'anything-resume)
+
+;;; --------------------------------------------------------------------------------
+;;;Ctrl+Enterで矩形選択開始
+;;; --------------------------------------------------------------------------------
+(cua-mode t)
+(setq cua-enable-cua-keys nil)

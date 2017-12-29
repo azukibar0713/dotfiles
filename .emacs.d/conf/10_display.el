@@ -8,7 +8,7 @@
 ;; メニューバーを消す
 (menu-bar-mode -1)
 ;; ツールバーを消す
-(tool-bar-mode -1)
+;(tool-bar-mode -1)
 ;; 列数を表示する
 (column-number-mode t)
 ;; 行数を表示する

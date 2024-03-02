@@ -45,6 +45,6 @@
 
 ;;; init_loader
 ;; ~/.emacs.d/inits/以下の数値２つから始まる.el配置を読み込む
-(package-initialize)
+;;(package-initialize)
 (init-loader-load)
 

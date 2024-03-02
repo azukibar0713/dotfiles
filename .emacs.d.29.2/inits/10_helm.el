@@ -14,7 +14,10 @@
 ;(define-key global-map (kbd "C-c i")   'helm-imenu)
 
 (require 'helm-gtags)
-(helm-gtags-mode t)
+;;(helm-gtags-mode t)
+;; Enable helm-gtags-mode
+(add-hook 'c-mode-hook 'helm-gtags-mode)
+(add-hook 'c++-mode-hook 'helm-gtags-mode)
 (setq helm-gtags-mode-hook
       '(lambda ()
          (local-unset-key "\C-t")
@@ -60,11 +63,11 @@
 (global-set-key (kbd "C-M-g") 'helm-ag)
 (global-set-key (kbd "C-M-k") 'backward-kill-sexp) ;推奨
 
-(require 'helm-ls-git)
-(key-chord-define-global "ls" 'helm-ls-git-ls)
+;(require 'helm-ls-git)
+;(key-chord-define-global "ls" 'helm-ls-git-ls)
 
-(key-chord-define-global "hs" 'helm-swoop)
-(key-chord-define-global "hi" 'helm-imenu)
+;(key-chord-define-global "hs" 'helm-swoop)
+;(key-chord-define-global "hi" 'helm-imenu)
 
 ;; Emulate `kill-line' in helm minibuffer
 (setq helm-delete-minibuffer-contents-from-point t)

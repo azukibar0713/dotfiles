@@ -6,6 +6,8 @@
 
 ;; helm: あいまい検索有効
 (setq helm-M-x-fuzzy-match t)
+(setq helm-semantic-fuzzy-match t
+      helm-imenu-fuzzy-match    t)
 
 (define-key global-map (kbd "C-]") 'helm-mini)
 (define-key global-map (kbd "M-x")     'helm-M-x)

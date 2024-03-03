@@ -1,7 +1,13 @@
 - Window
   - grepのコマンドが見つからない
-    - 環境変数に
-    "C:\Program Files\Git\usr\bin" を追加
+    - 環境変数に"C:\Program Files\Git\usr\bin" を追加
+  - 各種バイナリ
+    - GNU GLOBAL
+      - readmeにフォルダ構造ごとコピーしろと書いてあったので、Git/usr/binのしたに丸ごとおいて、binにpathを通した
+      - 環境変数設定してpower shellではすぐにglobal.exeが見えていたが、emacsからは一度再起動する必要があった
+    - ripgrepなどがない
+    - dotfiles/bin/winにおいてある
+    - "C:\Program Files\Git\usr\bin"にコピーする
 - .emacs.d
   - init.el : 設定ファイル
   - conf : 分割設定用ディレクトリ
@@ -28,6 +34,11 @@
 - マニュアルでロードする場合
   - conf以下にinit-perl.elがあったら、 (load "init-peal"); 拡張子は不要
 
+## 検索
+- ripgrep
+  - バイナリ
+    - Windows
+      - https://github.com/BurntSushi/ripgrep/releases のripgrep-14.1.0-x86_64-pc-windows-msvc
 
 ## 編集
 - undo-tree

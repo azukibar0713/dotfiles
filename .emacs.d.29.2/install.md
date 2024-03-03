@@ -40,17 +40,18 @@
     - Windows
       - https://github.com/BurntSushi/ripgrep/releases のripgrep-14.1.0-x86_64-pc-windows-msvc
 
-## 編集
+## 編集 (02_edit.el)
 - undo-tree
   - redo+は新しいバージョンだと動かないらしい
     - https://qiita.com/takc923/items/c3d64b55fc4f3a3b0838
-
 
 ## helm
 - helm
   - `package install helm`
     - **ここでhelmの設定をすると、操作がスムーズになる**
   - `package install helm-gtags`
+- helm ag
+  - カレントバッファがあるディレクトリ以下をgrep
 
 ### カスタマイズ
 - mini bufferでC-nしても、recentfに移動できない

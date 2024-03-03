@@ -68,13 +68,22 @@
 (setq helm-ag-insert-at-point 'symbol)
 ;;; C-M-gはちょうどあいてる
 (global-set-key (kbd "C-M-g") 'helm-ag)
-(global-set-key (kbd "C-M-k") 'backward-kill-sexp) ;推奨
+;(global-set-key (kbd "C-M-k") 'backward-kill-sexp) ;推奨
+
+
+
+
 
 ;(require 'helm-ls-git)
 ;(key-chord-define-global "ls" 'helm-ls-git-ls)
 
 ;(key-chord-define-global "hs" 'helm-swoop)
 ;(key-chord-define-global "hi" 'helm-imenu)
+
+
+
+
+
 
 ;; Emulate `kill-line' in helm minibuffer
 (setq helm-delete-minibuffer-contents-from-point t)

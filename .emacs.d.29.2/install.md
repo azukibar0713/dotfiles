@@ -1,40 +1,47 @@
 - Window
-  - grep�̃R�}���h��������Ȃ�
-    - ���ϐ���
-    "C:\Program Files\Git\usr\bin" ��ǉ�
+  - grepのコマンドが見つからない
+    - 環境変数に
+    "C:\Program Files\Git\usr\bin" を追加
 - .emacs.d
-  - init.el : �ݒ�t�@�C��
-  - conf : �����ݒ�p�f�B���N�g��
-  - elisp : Elisp�C���X�g�[���p�f�B���N�g��
-  - elpa : ELPA�p�̃f�B���N�g��
-  - public_repos : ���J���|�W�g������g���@�\���`�F�b�N�A�E�g����f�B���N�g��
+  - init.el : 設定ファイル
+  - conf : 分割設定用ディレクトリ
+  - elisp : Elispインストール用ディレクトリ
+  - elpa : ELPA用のディレクトリ
+  - public_repos : 公開レポジトリから拡張機能をチェックアウトするディレクトリ
   
 - package
-  - init.el�ɐݒ���L�ڂ���
+  - init.elに設定を記載する
 
-- ELPA��e�[�}�𗘗p�������Ɏ����I�ɒǉ������ݒ�� .emacs.d/custom.el�t�@�C���ɏ������܂��悤�ɂ���
+- ELPAやテーマを利用した時に自動的に追加される設定を .emacs.d/custom.elファイルに書き込まれるようにする
 
 
-# ��������package�̃C���X�g�[�����
-`M-x list-packages`�������ăC���X�g�[������
+# ここからpackageのインストール作業
+`M-x list-packages`をつかってインストールする
 
-## ��[��
+## ロード
 - init-loader.el
-  - "inits"�t�H���_����.el�t�H���_�����ԂɎ����ǂݍ��݂���
-  - �t�H���_�͎����ł���
-- inits�t�H���_�̒��g
+  - "inits"フォルダから.elフォルダを順番に自動読み込みする
+  - フォルダは自分でつくる
+- initsフォルダの中身
   - 03_themes.el
-    - �����ڂɊւ���ݒ�
-- �}�j���A���Ń��[�h����ꍇ
-  - conf�ȉ���init-perl.el����������A (load "init-peal"); �g���q�͕s�v
+    - 見た目に関する設定
+- マニュアルでロードする場合
+  - conf以下にinit-perl.elがあったら、 (load "init-peal"); 拡張子は不要
 
 
-## �ҏW
+## 編集
 - undo-tree
-  - redo+�͐V�����o�[�W�������Ɠ����Ȃ��炵��
+  - redo+は新しいバージョンだと動かないらしい
     - https://qiita.com/takc923/items/c3d64b55fc4f3a3b0838
 
 
 ## helm
 - helm
   - `package install helm`
+    - **ここでhelmの設定をすると、操作がスムーズになる**
+  - `package install helm-gtags`
+
+### カスタマイズ
+- mini bufferでC-nしても、recentfに移動できない
+  - helm-move-to-line-cycle-in-sourceをM-x customize variableで`Toggle on (non-nil)`のToggleをクリックして`Toggle off (nil)`表示にする。そのあと、`Apply and Save`すると移動できるようになる
+  - 恒久的には`(setq helm-move-to-line-cycle-in-source nil)`逆の気がするのだが。。

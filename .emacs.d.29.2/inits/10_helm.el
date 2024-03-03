@@ -11,7 +11,12 @@
 (define-key global-map (kbd "M-x")     'helm-M-x)
 (define-key global-map (kbd "C-x C-f") 'helm-find-files)
 (define-key global-map (kbd "M-y")     'helm-show-kill-ring)
-;(define-key global-map (kbd "C-c i")   'helm-imenu)
+;; (define-key global-map (kbd "C-c i")   'helm-imenu)
+
+;; helm-split-window-inside-p            t  ; 画面分割しても同じバッファ内にhelmのバッファを表示
+(setq helm-move-to-line-cycle-in-source nil)  ; これをやらないとC-nを押してもrecentfに移れなかった
+;;(setq helm-ff-search-library-in-sexp t)  ; よく分からんがライブラリの中も検索するみたいな
+;;(setq helm-echo-input-in-header-line t)  ; helmのバッファの上部にコンソールの内容を表示
 
 (require 'helm-gtags)
 ;;(helm-gtags-mode t)

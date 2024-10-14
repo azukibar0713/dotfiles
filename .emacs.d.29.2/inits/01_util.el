@@ -31,3 +31,33 @@
    (with-suppressed-message (recentf-save-list))))
 (require 'recentf-ext)
 
+;;; --------------------------------------------------------------------------------
+;;; F5で更新.
+;;; --------------------------------------------------------------------------------
+(defun revert-buffer-no-confirm (&optional force-reverting)
+  "Interactive call to revert-buffer. Ignoring the auto-save
+ file and not requesting for confirmation. When the current buffer
+ is modified, the command refuses to revert it, unless you specify
+ the optional argument: force-reverting to true."
+  (interactive "P")
+  ;;(message "force-reverting value is %s" force-reverting)
+  (if (or force-reverting (not (buffer-modified-p)))
+      (revert-buffer :ignore-auto :noconfirm)
+    (error "The buffer has been modified")))
+(global-set-key (kbd "<f5>") 'revert-buffer-no-confirm)
+
+;;; yesをy, noをnで入力できるように.
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+;; バックアップとオートセーブファイルを~/.emacs.d/backups/へ集める
+(add-to-list 'backup-directory-alist
+             (cons "." "~/.emacs.d/backups/"))
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name "~/.emacs.d/backups/") t)))
+
+;;; --------------------------------------------------------------------------------
+;;; 使い捨てのファイルを開く
+;;; --------------------------------------------------------------------------------
+(require 'open-junk-file)
+(setq open-junk-file-format "~/junk/%Y/%m/%Y-%m-%d-%H%M%S.")
+(global-set-key (kbd "C-x j") 'open-junk-file)

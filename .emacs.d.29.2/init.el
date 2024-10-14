@@ -42,9 +42,46 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+;;; --------------------------------------------------------------------------------
+;;; Backup
+;;; --------------------------------------------------------------------------------
+;;; *.~ とかのバックアップファイルを作らない
+;(setq make-backup-files nil)
+;;; .#* とかのバックアップファイルを作らない
+;(setq auto-save-default nil)
+;; バックアップとオートセーブファイルを~/.emacs.d/backups/へ集める
+(add-to-list 'backup-directory-alist
+             (cons "." "~/.emacs.d/backups/"))
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name "~/.emacs.d/backups/") t)))
+
+;; オートセーブファイル作成までの秒間隔
+(setq auto-save-timeout 15)
+;; オートセーブファイル作成までのタイプ間隔
+(setq auto-save-interval 60)
+
+;;; --------------------------------------------------------------------------------
+;;; コマンドの履歴を保存
+;;; --------------------------------------------------------------------------------
+(setq desktop-globals-to-save '(extended-command-history))
+(setq desktop-files-not-to-save "")
+(desktop-save-mode 1)
+;;; ミニバッファの履歴を保存する
+(savehist-mode 1)
+
+
+
+
+
+
+
+
+
+
+
+
 
 ;;; init_loader
 ;; ~/.emacs.d/inits/以下の数値２つから始まる.el配置を読み込む
 ;;(package-initialize)
 (init-loader-load)
-

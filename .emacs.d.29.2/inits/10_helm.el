@@ -75,7 +75,7 @@
 
 
 ;(require 'helm-ls-git)
-;(key-chord-define-global "ls" 'helm-ls-git-ls)
+(key-chord-define-global "ls" 'helm-ls-git-ls)
 
 (key-chord-define-global "hs" 'helm-swoop)
 (key-chord-define-global "hi" 'helm-imenu)

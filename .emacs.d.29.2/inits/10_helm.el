@@ -32,15 +32,18 @@
          (local-set-key "\C-t\C-t" 'helm-gtags-dwim)
                                         ; 定義元へ
                                         ;        (local-set-key "\C-t\C-d" 'helm-gtags-find-tag)
-         (local-set-key (kbd "M-t") 'helm-gtags-find-tag)
+;         (local-set-key (kbd "M-t") 'helm-gtags-find-tag)
                                         ; 参照元へ
                                         ;        (local-set-key "\C-t\C-r" 'helm-gtags-find-rtag)
-         (local-set-key (kbd "M-r") 'helm-gtags-find-rtag)
+;         (local-set-key (kbd "M-r") 'helm-gtags-find-rtag)
+         (local-set-key "\C-t\C-r" 'helm-gtags-find-rtag)
                                         ; 変数の定義元/参照先へ
                                         ;        (local-set-key "\C-t\C-s" 'helm-gtags-find-symbol)
-         (local-set-key (kbd "M-s") 'helm-gtags-find-symbol)
+;         (local-set-key (kbd "M-s") 'helm-gtags-find-symbol)
+         (local-set-key "\C-t\C-s" 'helm-gtags-find-symbol)
                                         ;        (local-set-key (kbd "C-t") 'helm-gtags-pop-stack)
          (local-set-key (kbd "C-z") 'helm-gtags-pop-stack)
+         (local-set-key "\C-t\C-z" 'helm-gtags-pop-stack)
                                         ; 前のバッファへ
          (local-set-key "\C-t\C-p" 'helm-gtags-previous-history)
                                         ; 次のバッファへ
@@ -91,3 +94,39 @@
   "Emulate `kill-line' in helm minibuffer"
   (kill-new (buffer-substring (point) (field-end))))
 
+
+; helm-bm
+;;; bm.el初期設定
+(setq-default bm-buffer-persistence nil)
+(setq bm-restore-repository-on-load t)
+(require 'bm)
+(add-hook 'find-file-hook 'bm-buffer-restore)
+(add-hook 'kill-buffer-hook 'bm-buffer-save)
+(add-hook 'after-save-hook 'bm-buffer-save)
+(add-hook 'after-revert-hook 'bm-buffer-restore)
+(add-hook 'vc-before-checkin-hook 'bm-buffer-save)
+(add-hook 'kill-emacs-hook '(lambda nil
+                              (bm-buffer-save-all)
+                              (bm-repository-save)))
+(global-set-key (kbd "M-[") 'bm-previous)
+(global-set-key (kbd "M-]") 'bm-next)
+
+;;; helm-bm.el設定
+(require 'helm-bm)
+;; migemoくらいつけようね
+(push '(migemo) helm-source-bm)
+;; annotationはあまり使わないので仕切り線で表示件数減るの嫌
+(setq helm-source-bm (delete '(multiline) helm-source-bm))
+
+(defun bm-toggle-or-helm ()
+  "2回連続で起動したらhelm-bmを実行させる"
+  (interactive)
+  (bm-toggle)
+  (when (eq last-command 'bm-toggle-or-helm)
+    (helm-bm)))
+(global-set-key (kbd "M-SPC") 'bm-toggle-or-helm)
+
+;;; これがないとemacs -Qでエラーになる。おそらくバグ。
+(require 'compile)
+
+(key-chord-define-global "hb" 'helm-bm)

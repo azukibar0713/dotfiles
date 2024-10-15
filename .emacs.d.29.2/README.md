@@ -7,10 +7,9 @@ Windowsパスの通っているフォルダに各種実行ファイルをコピ�
 が考えられるが、Gitに元々あるやつはそのままつかって、それ以外はemacs以下がいいかも
 
 - cmigemo
-  - cmigemo.exe, migemo.dll, pluginフォルダ(いらないかも)をbinにコピーする
-  - inits/12_search.el
+  - cmigemo一式を c:/usr/にコピーする
+  - 上記以外のパスを使う場合は`inits/12_search.el`を編集する
     - フルパスで辞書の設定をする
-    - migemoのコメントアウトを外す(migemoの設定ができていないと、isearchがうまく動かなくなるので)
 - grep
   - Gitインストールした後に、環境変数に"C:\Program Files\Git\usr\bin" を追加
 - GNU GLOBAL

@@ -4,6 +4,14 @@
 | M-n, M-p       | 現在のカーソルがあたっているシンボルに移動             |movel.el|
 | C-M-n, C-M-p   | 現在の括弧の対応するもう一方の括弧に移動         ||
 | C-<, C->       | 今見えている画面の一番上（下）に移動        ||
+| F2(移動), S-F2(逆移動), C-F2(トグル)| bookmark ※削除はbm-remove-all-all-buffers    |01_util.el|
+| M-Space 2回| helm-bm (bookmarkのhelm)     |10_helm.el|
+| C-t C-t| global あいまい検索    |10_helm.el|
+| C-t C-r| global 参照元    |10_helm.el|
+| C-t C-s| global シンボル  |10_helm.el|
+| C-t C-p| global シンボル  |10_helm.el|
+| C-t C-n| global シンボル  |10_helm.el|
+| C-t C-f| global シンボル  |10_helm.el|
 
 # 編集
 | キー     | 説明                      |関連ファイル|
@@ -21,6 +29,12 @@
 - hs同時押しにアサイン
 ## helm-imenu
 - hi同時押しにアサイン
+
+# 表示
+| キー     | 説明                      |関連ファイル|
+|--------|-------------------------|-------------------|
+| F3(移動), S-F3(逆移動), C-F3(トグル)  | ハイライト ※2回C-F3しないと色がつかないときがある         ||
+| M-F3                                 | ハイライトしているシンボルを置換する       ||
 
 
 # 設定

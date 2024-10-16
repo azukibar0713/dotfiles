@@ -8,3 +8,14 @@
 (load-library "migemo")
 (migemo-init)
 
+
+;;; -----------------------------
+;;; progectile
+;;; https://tech.camph.net/projectile-and-helm/
+;;; プロジェクトは自動認識される.Gitレポジトリとか.
+;;; - helm-projectile-find-file  ファイル検索
+;;; -----------------------------
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
+

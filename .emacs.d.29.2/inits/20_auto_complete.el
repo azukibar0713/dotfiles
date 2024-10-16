@@ -19,5 +19,5 @@
 (define-key company-active-map (kbd "C-f") 'company-complete-selection) ;; C-fで候補を設定
 (define-key emacs-lisp-mode-map (kbd "C-M-i") 'company-complete) ;; 各種メジャーモードでも C-M-iで company-modeの補完を使う
 
-
+(global-set-key (kbd "M-.") 'company-filter-candidates)
 

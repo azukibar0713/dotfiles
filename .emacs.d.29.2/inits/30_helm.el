@@ -4,6 +4,13 @@
 ;;; 現在のシンボルをデフォルトのクエリにする
 (setq helm-ag-insert-at-point 'symbol)
 
+; migemoはon
+(helm-migemo-mode 1)
+; 小文字大文字区別なし
+(custom-set-variables
+ '(helm-ag-command-option "-i"))
+
+
 ;; helm: あいまい検索有効
 (setq helm-M-x-fuzzy-match t)
 (setq helm-semantic-fuzzy-match t
@@ -130,3 +137,4 @@
 (require 'compile)
 
 (key-chord-define-global "hb" 'helm-bm)
+
